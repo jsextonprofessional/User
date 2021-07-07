@@ -16,15 +16,39 @@ class User:
         print(f"Name: {self.name}, {self.account_balance}")
         return self
 
+    # transfer_money(self, other_user, amount)
+
 first_user = User("Guido van Rossum", "guido@python.com" )
 second_user = User("Monty Python", "monty@python.com")
-print(first_user.name)	# output: Guido van Rossum
-print(second_user.name)	# output: Monty Python
+third_user = User("Jacob Sexton", "jake@example.com")
+# Create 3 instances of user class
+print(first_user.name)
+print(second_user.name)
+print(third_user.name)
 first_user.display_user_balance()
 second_user.display_user_balance()
+third_user.display_user_balance()
+# First user makes 3 deposits and 1 withdrawal, then display account balance
 first_user.make_deposit(100)
 first_user.make_deposit(200)
-second_user.make_deposit(50)
-print(first_user.account_balance)	# output: 300
-print(second_user.account_balance)	# output: 50
+first_user.make_deposit(300)
+first_user.make_withdrawal(150)
+first_user.display_user_balance()
+# Second User makes 2 deposits and 2 withdrawals, then display balance
+second_user.make_deposit(200)
+second_user.make_deposit(400)
+second_user.make_withdrawal(100)
+second_user.make_withdrawal(150)
+second_user.display_user_balance()
+# Third user makes 1 deposit and 3 withdrawals, then display balance
+third_user.make_deposit(10000000)
+third_user.make_withdrawal(825)
+third_user.make_withdrawal(50)
+third_user.make_withdrawal(40000)
+third_user.display_user_balance()
+# first_user.make_deposit(100)
+# first_user.make_deposit(200)
+# second_user.make_deposit(50)
+# print(first_user.account_balance)	# output: 300
+# print(second_user.account_balance)	# output: 50
 

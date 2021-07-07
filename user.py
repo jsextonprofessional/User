@@ -16,7 +16,11 @@ class User:
         print(f"Name: {self.name}, {self.account_balance}")
         return self
 
-    # transfer_money(self, other_user, amount)
+    def transfer_money(self, other_user, amount):
+        self.account_balance -= amount
+        other_user.account_balance += amount
+        return self
+        
 
 first_user = User("Guido van Rossum", "guido@python.com" )
 second_user = User("Monty Python", "monty@python.com")
@@ -46,9 +50,7 @@ third_user.make_withdrawal(825)
 third_user.make_withdrawal(50)
 third_user.make_withdrawal(40000)
 third_user.display_user_balance()
-# first_user.make_deposit(100)
-# first_user.make_deposit(200)
-# second_user.make_deposit(50)
-# print(first_user.account_balance)	# output: 300
-# print(second_user.account_balance)	# output: 50
-
+# Transfer first user's money to third user, the print both balances
+first_user.transfer_money(third_user, 450)
+first_user.display_user_balance()
+third_user.display_user_balance()
